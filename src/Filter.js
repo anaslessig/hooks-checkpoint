@@ -1,22 +1,19 @@
-import React, { useRef } from 'react'
-import StarRatingComponent from 'react-star-rating-component';
+import React from 'react'
+import  {useRef} from 'react'
+import StarRatingComponent from 'react-star-rating-component'
 
-const Filter = ({ rateFilter, setRateFilter, setTitleFilter }) => {
-  const a = useRef();
+
+export default function Filter({rate ,setRate,setTitle}) {
+    const x=useRef()
   return (
     <div>
-      <input type='text' placeholder=' title film  to find ' ref={a} onChange={() => setTitleFilter(a.current.value)}></input>
-      <StarRatingComponent 
-          name="rate1" 
+        <input type="text" ref={x} onChange={()=>setTitle(x.current.value)} />
+        <StarRatingComponent 
+          name="rate2" 
           starCount={5}
-          value={rateFilter}
-        onStarClick={(value) => {
-            setRateFilter(value)
-        }}
-       
-      />
+          value={rate}
+          onStarClick={(value)=>setRate(value)}
+        />
     </div>
   )
 }
-
-export default Filter
